@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Yoga Poses</h1>
+    <p>Generate fab new poses!</p>
+    <div class="row">
+	    <div class="col-md-2">
+		    <p><a class="btn btn-primary btn-lg" id="newpose" role="button">New Pose!</a></p>
+      </div>
+	    <div class="col-md-2">
+		    <p><a class="btn btn-primary btn-lg" id="newfloorpose" role="button">New Floor Pose</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="poses">
+    <div class="panel panel-default">
+      <div class="container">
+        <div class="panel-body">
+          <div class="row">
+            <div class=".col-md-6 .col-md-offset-3">
+              <div class=".col-md-6 .col-md-offset-3">
+                <div class="col-md-4">
+		              <h2>Mixed Poses!</h2>
+                  <h1><%= @pose.capitalize + " " + @pose2.capitalize %></h1>
+	              </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <% pose1 = "/images/" + @pose + ".jpg" %>
+              <h3><%= @pose.capitalize %></h3>
+              <img src= <%= pose1 %> />
+            </div>
+            <div class="col-md-6">
+              <% pose2 = "/images/" + @pose2 + ".jpg" %>
+              <h3><%= @pose2.capitalize %></h3>
+              <img src= <%= pose2 %> />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="floor-poses">
+    <div class="panel panel-default">
+      <div class="container">
+        <div class="panel-body">
+          <div class="row">
+            <div class=".col-md-6 .col-md-offset-3">
+              <div class=".col-md-6 .col-md-offset-3">
+                <div class="col-md-4">
+		              <h2>Floor Poses!</h2>
+                  <h1><%= @floor_pose.capitalize + " " + @floor_pose2.capitalize %></h1>
+	              </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <% floor_pose1 = "/images/" + @floor_pose + ".jpg" %>
+              <h3><%= @floor_pose.capitalize %></h3>
+              <img src= <%= floor_pose1 %> />
+            </div>
+            <div class="col-md-6">
+              <% floor_pose2 = "/images/" + @floor_pose2 + ".jpg" %>
+              <h3><%= @floor_pose2.capitalize %></h3>
+              <img src= <%= floor_pose2 %> />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$('#newpose').click(function() {
+  $(".poses").load(location.href + " .poses");
+  $('html, body').animate({
+    'scrollTop' : $(".poses").position().top
+   });
+});
+$('#newfloorpose').click(function() {
+  $(".floor-poses").load(location.href + " .floor-poses");
+  $('html, body').animate({
+    'scrollTop' : $(".floor-poses").position().top
+    });
+  });
+ </script>
